@@ -13,6 +13,7 @@ class TopicsController < ApplicationController
   def create
     #Topic.create(topics_params)
     @topic = Topic.new(topics_params) #newメソッドで、空のインスタンスを作成し、値を代入した上で保存する。
+    @topic.user_id = current_user.id
     if @topic.save
      redirect_to topics_path, notice: "トピックを作成しました！"
     else
