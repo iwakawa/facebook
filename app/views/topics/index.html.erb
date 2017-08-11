@@ -8,7 +8,7 @@
 
    <% @topics.each do |topic| %>
     <div class="row">
-     <p><%= topic.user.name %></p>
+     <p><%= topic.user_id %></p>
      <p><%= topic.title %></p>
      <p><%= topic.content %></p>
      <%= link_to "トピックを編集する", edit_topic_path(topic.id), class: 'btn btn-default btn-sm btn-success' %>
