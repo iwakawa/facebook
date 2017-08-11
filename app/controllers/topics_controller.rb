@@ -5,7 +5,7 @@ class TopicsController < ApplicationController
   def index
     @topics = Topic.all
   end
-  
+
   def new
     @topic = Topic.new
   end
@@ -16,35 +16,36 @@ class TopicsController < ApplicationController
     @topic.user_id = current_user.id
     if @topic.save
      redirect_to topics_path, notice: "トピックを作成しました！"
+     NoticeMailer.sendmail_topic(@topic).deliver
     else
      render 'new'
     end
   end
-  
+
   def edit
     @topic = Topic.find(params[:id])
   end
-  
+
   def update
     @topic = Topic.find(params[:id])
     @topic.update(topics_params)
     redirect_to topics_path, notice: "トピックを更新しました！"
   end
-  
+
   def destroy
     @topic = Topic.find(params[:id])
     @topic.destroy
     redirect_to topics_path, notice: "トピックを削除しました！"
   end
-  
+
   private
     def topics_params
       params.require(:topic).permit(:title, :content)
     end
-    
+
   # idをキーとして値を取得するメソッド
     def set_blog
       @topic = Topic.find(params[:id])
-    end  
-    
+    end
+
 end
