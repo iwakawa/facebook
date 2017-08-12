@@ -8,7 +8,7 @@
 
    <% @topics.each do |topic| %>
     <div class="row">
-     <p><%= topic.user_id %></p>
+     <p><%= topic.user.name %></p>
      <p><%= topic.title %></p>
      <p><%= topic.content %></p>
      <p><%= profile_img(topic.user) %></p>
