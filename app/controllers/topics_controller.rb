@@ -6,6 +6,9 @@ class TopicsController < ApplicationController
     @topics = Topic.all
   end
 
+  def show
+  end
+
   def new
     @topic = Topic.new
   end
