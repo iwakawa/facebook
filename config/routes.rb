@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+
+  get 'relationships/create'
+
+  get 'relationships/destroy'
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   if Rails.env.development?
   mount LetterOpenerWeb::Engine, at: "/letter_opener"
@@ -11,8 +16,10 @@ Rails.application.routes.draw do
    }
 
   resources :topics, only: [:index, :new, :create, :edit, :update, :destroy, :show]
+  resources :users, only: [:index]
+  resources :relationships, only: [:create, :destroy]
 
-  resources :blogs do
+  resources :topics do
    resources :comments
    post :confirm, on: :collection
   end

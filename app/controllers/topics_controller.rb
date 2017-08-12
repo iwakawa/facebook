@@ -1,5 +1,5 @@
 class TopicsController < ApplicationController
-  before_action :set_blog, only: [:show, :edit, :update, :destroy]
+  before_action :set_topic, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
 
   def index
@@ -49,7 +49,7 @@ class TopicsController < ApplicationController
     end
 
   # idをキーとして値を取得するメソッド
-    def set_blog
+    def set_topic
       @topic = Topic.find(params[:id])
     end
 
