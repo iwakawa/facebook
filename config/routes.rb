@@ -12,6 +12,11 @@ Rails.application.routes.draw do
 
   resources :topics, only: [:index, :new, :create, :edit, :update, :destroy, :show]
 
+  resources :blogs do
+   resources :comments
+   post :confirm, on: :collection
+  end
+
   get 'topics' => 'topics#index'
 
   root 'top#index'
