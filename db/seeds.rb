@@ -19,11 +19,11 @@
     content: 'トピック',
   user_id: user.id)
 
-  #100.times do
-    #topic.comments.build(
-      #content: 'コメント',
-    #user_id: user.id)
-  #end
+  100.times do
+    topic.comments.build(
+      content: 'コメント',
+    user_id: user.id)
+  end
 
   topic.save
 

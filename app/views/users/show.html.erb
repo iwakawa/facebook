@@ -1,0 +1,32 @@
+<div class="container">
+
+
+<h2>フォロー一覧</h2>
+
+  <!--users全体を確認-->
+  <% @user.followed_users.each do |user| %>
+    <div class="item">
+      <div class="image_size">
+       <%= profile_img(user) %>
+      </div>
+      <br>
+      <%= user.name %>
+    </div>
+
+  <% end %>
+
+
+
+<h2>フォローワー一覧</h2>
+
+  <% @user.followers.each do |user| %>
+      <div class="item">
+        <div class="image_size">
+         <%= profile_img(user) %>
+        </div>
+      <br>
+      <%= user.name %>
+      </div>
+  <% end %>
+
+</div>
