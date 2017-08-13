@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'devise'
 gem 'jquery-turbolinks'
 gem 'twitter-bootstrap-rails'
+gem 'therubyracer', platforms: :ruby
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'
 # Use postgresql as the database for Active Record
@@ -45,6 +46,11 @@ group :development, :test do
   gem 'spring'
   gem 'pry-rails'
   gem 'better_errors'
+  gem 'capistrano', '3.6.0'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
+  gem 'capistrano3-unicorn'
 end
 
 group :development do
@@ -71,3 +77,6 @@ gem 'carrierwave'
 gem 'mini_magick'
 
 gem 'fog'
+
+gem 'dotenv-rails'
+gem 'unicorn'
