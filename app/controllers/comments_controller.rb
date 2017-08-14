@@ -16,17 +16,18 @@ class CommentsController < ApplicationController
   end
 
   def edit
-    respond_to do |format|
-      format.html {redirect_to topics_path(@topic)}
-        format.js { render :edit }
-    end
+    @comment = Comment.find(params[:id])
   end
 
   def update
-    respond_to do |format|
-    @comment.update(commnets_params)
-    format.js { render :index }
-    end
+    @comment = Comment.find(params[:id])
+    #respond_to do |format|
+      if @comment.update(comment_params)
+        #format.html {
+        redirect_to topic_path(@comment.topic), notice:"コメントが編集されました!"
+      else
+        render 'edit'
+      end
   end
 
   def destroy
